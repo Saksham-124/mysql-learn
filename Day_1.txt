@@ -1,0 +1,191 @@
+✅ 50 SQL Questions for DML (Data Manipulation Language)
+
+These will include INSERT, UPDATE, DELETE.
+
+INSERT Queries :-
+
+Q. Insert a new car: Tesla Model S, Electric Engine, 100 kWh, 670 HP, 250 km/h, 3.1 sec, ₹1.5 Cr, Electric, 5 seats, 850 Nm torque.
+
+Syntax : INSERT INTO cars(company_name, car_name, engine_model, enginecc_batterycapacity, horsepower, total_Speed, performance_0_100_kmph, car_prices, fuel_types, seats, torque)
+         VALUES ("Tesla", "Tesla Model S", "Electric Motor", "100 KWh", "670 HP", "250 km/h", "3.1 sec", "$173445.50", "Electric", 5, "850 Nm");
+
+-------------------------------------------------
+
+Q. Add a new Tata Punch with 1.2L Petrol engine, 86 HP, 165 km/h, 11.5 sec, $8324.42, 5 seats, 113 Nm torque.
+
+Syntax : INSERT INTO cars(company_name, car_name, horsepower, total_speed, performance_0_100_kmph, car_prices, fuel_types, seats, torque)
+	 VALUES ("Tata Motors", "Punch", "86 hp", "165 km/h", "11.5 sec", "$8324.42", "Petrol", 5, "113 NM");
+
+-------------------------------------------------
+
+Q. Insert a Kia EV6 with 77.4 kWh battery, 320 HP, 192 km/h, 5.2 sec, ₹64.95L, 5 seats.
+
+Syntax : INSERT INTO cars (company_name, cars_name, enginecc_batterycapacity, horsepower, total_speed, performance_0_100_kmph, car_prices, fuel_types, seats)
+	 VALUES ("Kia", "EV6", "77.4 kwh", "320 hp", "192 km/h", "5.2 sec", "$75048.88", battery, 5);
+
+-------------------------------------------------
+
+Q. Insert a Maruti Alto with missing HorsePower but all other values present.
+
+Syntax : INSERT INTO cars(company_name, car_name, engine_model, enginecc_batterycapacity, total_Speed, performance_0_100_kmph, car_prices, fuel_types, seats, torque)
+	 VALUES ("Maruti Suzuki", "Swift LXI", "1.2L K-Series Dual Jet VVT", "1197 cc", "160–165 km/h", "12 sec", "$7518.29", "Petrol", 5, "113 nm");
+
+-------------------------------------------------
+
+Q. Add a car with only Company and Car Name fields filled.
+
+Syntax : INSERT INTO cars(company_name, car_name) VALUES ("Mahindra", "Thar");
+
+-------------------------------------------------------------------------------
+
+UPDATE Queries :-
+
+Q. Update the price of “FORTUNER GR SPORT” to $52049.72.
+
+Syntax : UPDATE cars SET car_prices = "$52049.72" WHERE car_name = "FORTUNER GR SPORT";
+
+-------------------------------------------------
+
+Q. Change the engine of “Honda City” to “1.5L”.
+
+Syntax : UPDATE cars SET engine_model = "1.5L" WHERE car_name = "city";
+
+-------------------------------------------------
+
+Q. Set HorsePower to 150 where Torque is “250 Nm”.
+
+Syntax : UPDATE cars SET horsepower = 150 where torque = "250 Nm";
+
+-------------------------------------------------
+
+Q. Update all cars with “Electric” fuel type to have Torque = “Instant”.
+
+Syntax : UPDATE cars SET torque = "Instant" WHERE fuel_types = "Electric";
+
+-------------------------------------------------
+
+Q. Set Seats = 7 for all “INNOVA HYCROSS” entries.
+
+Syntax : UPDATE cars SET seats = 7 WHERE car_name = "INNOVA HYCROSS";
+
+-------------------------------------------------------------------------------
+
+DELETE Queries :-
+
+Q. Delete all records where Fuel Type = 'Diesel'.
+
+Syntax : DELETE FROM cars WHERE fuel_types = "Diesel";
+
+-------------------------------------------------
+
+Q. Delete cars with price above $60,000.
+
+Syntax : DELETE FROM cars WHERE car_prices > $60,000;
+
+-------------------------------------------------
+
+Q. Remove entries with Engine field as NULL.
+
+Syntax : DELETE FROM cars WHERE engine_model IS NULL;
+
+-------------------------------------------------
+
+Q. Delete entries where Company = 'Test Motors'.
+
+Syntax : DELETE FROM cars WHERE company_name = "Test Motors";
+
+-------------------------------------------------
+
+Q. Remove all entries with Seats above 9.
+
+Syntax : DELETE FROM cars WHERE seats > 9;
+
+-------------------------------------------------------------------------------
+
+INSERT with partial columns :-
+
+Q. Insert a new entry with only Company, Car Name, and Fuel Type.
+
+Syntax : INSERT INTO cars (company_name, car_name, fuel_types) VALUES ("Nissan", "Magnite", "Petrol");
+
+-------------------------------------------------
+
+Q. Add a car with Seats, Price, and Fuel Type only.
+
+Syntax : INSERT INTO cars (seats, car_prices, fuel_types) VALUES (5, "$7,907.31", "CNG");
+
+-------------------------------------------------
+
+Q. Insert a null row and later update it.
+
+Syntax : INSERT INTO cars (company_name, car_name, engine_model, enginecc_batterycapacity, horsepower, total_speed, performance_0_100_kmph, car_prices, fuel_types, seats, torque)
+	 VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-------------------------------------------------------------------------------
+
+UPDATE with conditions :-
+
+Q. Update all entries where Seats = 5 and Fuel Type = 'Petrol' to have Torque = '120 Nm'.
+
+Syntax : UPDATE cars SET torque = "120 Nm" WHERE seats = 5 and fuel_types = "Petrol";
+
+-------------------------------------------------
+
+Q. Set Performance = ‘10 sec’ for all Tata cars.
+
+Syntax : UPDATE cars SET performance_0_100_kmph = "10 sec" WHERE company_name = "Tata Motors";
+
+-------------------------------------------------------------------------------
+
+DELETE with condition :-
+
+Q. Delete all Electric cars with less than 200 HorsePower.
+
+Syntax : DELETE FROM cars WHERE fuel_types = "Electric" AND horsepower < "200 hp";
+
+-------------------------------------------------
+
+Q. Delete all duplicate entries by Car Name.
+
+Syntax : 
+
+-------------------------------------------------
+
+Q. Remove all records where price is NULL or empty.
+
+Syntax : DELETE FROM cars WHERE car_prices IS NULL;
+ 
+-------------------------------------------------
+
+Q. Delete entries with HorsePower < 100 and Fuel Type = ‘Petrol’.
+
+Syntax : DELETE FROM cars WHERE horsepower < "100 hp" AND fuel_types = "Petrol";
+
+-------------------------------------------------
+
+Q. Delete entries where Performance = 'N/A'.
+
+Syntax : DELETE FROM cars WHERE performance_0_100_kmph = "N/A";
+
+-------------------------------------------------------------------------------
+
+INSERT using SELECT :-
+
+Q. Copy data from a high-end car to create a budget version with lesser HP.
+
+Syntax : INSERT INTO cars (company_name, car_name, engine_model, enginecc_batterycapacity, horsepower, total_speed, performance_0_100_kmph, car_prices, fuel_types, seats, torque)
+	 SELECT company_name, concat(car_name, " Budget Edition"), "Single Electric Motor", "75 kwh", "200 hp", "180 km/h", "6.5 sec", "$35,000", fuel_types, seats, torque FROM cars WHERE 	 car_name = "Model S" LIMIT 1;
+
+-> Choose car : 'Tesla', 'Model S', 'Dual Electric Motors', '100 kWh', '670 hp', '250 km/h', '3.1 sec', '$88,490 ', 'Electric', '5', 'Instant'
+
+-> Use concat function : add two name which is Model S + Budget Edition.
+
+-> Use Limit : perform task one row not all row.
+
+------------------------------------------------- 
+
+Q. Duplicate all SUV cars and change Fuel Type to Electric.
+
+Clone all cars with “Hybrid” to a new table.
+
+-------------------------------------------------------------------------------
